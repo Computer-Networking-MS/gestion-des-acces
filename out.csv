@@ -1,0 +1,116 @@
+faculty table
+id,name,description,updated,created
+1,Faculty of Science,This is the faculty od ,2023-11-12 12:23:30.820537,2023-11-12 12:23:30.820537
+2,Faculty of Arts,This is the faculty of arts ,2023-11-12 12:24:32.724663,2023-11-12 12:24:32.724663
+
+departement table
+id,name,description,updated,created,faculty_id
+1,Département de Mathématiques et Informatique,Ce département a pour objectif  de fournir aux étudiants des connaissances scientifiques fondamentales fortes dans le domaine des mathématiques et de l’informatique. Cela permettra à l’étudiant à l’issue de sa formation d‘intégrer des Ecoles d’Ingénieurs de haut niveau dans le domaine des sciences et technologie.,2023-12-02 10:51:12.839625,2023-12-02 09:44:26.287825,1
+2,Département des biologies et physiologie animale,cette Spécialité a pour objectif de donner aux étudiants les compétences en biologie et physiologie intégrée des organismes  animaux et de les former à l'approche pluridisciplinaire.,2023-12-02 10:50:42.489224,2023-12-02 10:03:17.667336,1
+3,Département des Biologies et Physiologie Végétale,cette formation a pour objectif de faire acquérir aux étudiants licenciés ou en cycle licence les connaissances théoriques et pratiques des différents champs de la biologie végétale et de ces applications. Offrant des techniques règlementaires pour le respect et la protection de l'espèce végétale,2023-12-02 10:50:18.301287,2023-12-02 10:08:50.913710,1
+4,Département de Chimie Organique,"les objectifs de cette spécialité 😊😊😊😊😊seront de  préciser les principales fonctions organiques par leur synthèse et leur réactivité et montrer leur importance dans le monde moderne; décrire, expliquer et appliquer les mécanismes réactionnels de base en chimie organique; introduire les notions de base sur les glucides, lipides et aminoacides, en vue d'une formation  subséquent en biochimie ou en biologie; préparer l'étudiant (futur ingénieur, spécialiste de la santé ou autre scientifique) à connaître, à reconnaître, à utiliser et à vivre adéquatement avec les millions de substances organiques associées à la vie moderne.",2023-12-02 10:49:25.190347,2023-12-02 10:10:21.606425,1
+5,Département de Physique,"ce département a pour but  de former des étudiants à l'interface physique-chimie par l'acquisition des connaissances solides tant théoriques qu'expérimentales en physique et en chimie, ainsi que de développer l'autonomie des étudiants face à la pratique expérimentale en chimie et en physique.",2023-12-02 10:49:12.489535,2023-12-02 10:24:57.558073,1
+
+branch table
+id,name,description,updated,created,department_id,faculty_id
+1,Informatique,"cette filière vise à dispenser une formation généraliste en informatique permettant à l'étudiant d'avoir une base solide dans les modules classiques de l'informatique, plus une formation scientifique généraliste en mathématiques .",2023-12-02 10:53:35.833072,2023-12-02 10:35:12.212661,1,1
+2,Mathématiques,"cette filière a pour but de faire acquérir des connaissances scientifiques approfondies en mathématiques (algèbre, géométrie, analyse, calcul différentiel et intégral, probabilités et statistiques, finances...) et aussi une formation scientifique pluridisciplinaire (physique, chimie, informatique...) aux étudiants inscrit .",2023-12-02 10:53:19.689234,2023-12-02 10:40:00.785280,1,1
+3,Biologie Animale,"L'objectif de cette formation est de former aux sciences animales appliquées, par une approche intégrative de la biologie, incluant principalement la génétique, la physiologie et le comportement.",2023-12-02 10:48:52.851490,2023-12-02 10:42:05.693076,3,1
+5,Biologie Végétale,"La biologie végétale fait partie intégrante des Sciences du Vivant, cette discipline permettra aux étudiants inscrits d'acquérir des connaissances concernant les tissus végétaux, l'anatomie des organes, leur morphologie ainsi la reproduction.",2023-12-02 10:53:00.127754,2023-12-02 10:47:44.310896,3,1
+6,Physique,"L'objectif de la formation de Physique est de donner aux étudiants toutes les bases scientifiques nécessaires à la poursuite d'études au niveau licence master ou bien école d'ingénieur dans les métiers de la Physique, à l'interface entre la Physique et la Chimie ou bien encore dans le monde de l'enseignement.",2023-12-02 10:55:33.671015,2023-12-02 10:55:33.671015,5,1
+7,Chimie,Cette formation permet aux étudiants d'obtenir une base solide dans tous les secteurs de la chimie pour leur cycle  licence et master.,2023-12-02 10:59:54.509095,2023-12-02 10:59:54.509095,4,1
+
+course tabale
+id,name,description,updated,created,branch_id,department_id,faculty_id
+1,Algorithme,Un algorithme est une série d'instructions permettant de résoudre un problème. Il est constitué de plusieurs parties : déclaration des variables.,2023-12-02 11:02:40.259943,2023-12-02 11:02:40.259943,1,1,1
+2,Génie Logiciel,"Le cours de génie logiciel se veut pour objectif primordial d'initier les étudiants de première Licence en Gestion Informatique, à la conception des applications informatiques de façon méthodique et rééditable.",2023-12-02 11:05:48.851635,2023-12-02 11:05:48.851635,1,1,1
+3,Programmation Fonctionnelle,"La programmation fonctionnelle est un style de programmation dont les concepts fondamentaux sont les notions de valeur, de fonction et d'application d'une fonction à un valeur.",2023-12-02 11:08:35.616455,2023-12-02 11:08:35.616455,1,1,1
+
+def insert_db_default_values(apps, schema_editor):
+    Department = apps.get_model('your_app_name', 'Department')
+    Faculty = apps.get_model('your_app_name', 'Faculty')
+
+    # Add all Department instances
+    department_data = [
+        (1, 'Département de Mathématiques et Informatique', 'Ce département a pour objectif de fournir aux étudiants des connaissances scientifiques fondamentales fortes dans le domaine des mathématiques et de l’informatique. Cela permettra à l’étudiant à l’issue de sa formation d‘intégrer des Ecoles d’Ingénieurs de haut niveau dans le domaine des sciences et technologie.', '2023-12-02 10:51:12.839625', '2023-12-02 09:44:26.287825', 1),
+        (2, 'Département des biologies et physiologie animale', 'Cette spécialité a pour objectif de donner aux étudiants les compétences en biologie et physiologie intégrée des organismes animaux et de les former à l\'approche pluridisciplinaire.', '2023-12-02 10:50:42.489224', '2023-12-02 10:03:17.667336', 1),
+        (3, 'Département des Biologies et Physiologie Végétale', 'Cette formation a pour objectif de faire acquérir aux étudiants licenciés ou en cycle licence les connaissances théoriques et pratiques des différents champs de la biologie végétale et de ces applications. Offrant des techniques règlementaires pour le respect et la protection de l\'espèce végétale.', '2023-12-02 10:50:18.301287', '2023-12-02 10:08:50.913710', 1),
+        (4, 'Département de Chimie Organique', 'Les objectifs de cette spécialité seront de préciser les principales fonctions organiques par leur synthèse et leur réactivité et montrer leur importance dans le monde moderne; décrire, expliquer et appliquer les mécanismes réactionnels de base en chimie organique; introduire les notions de base sur les glucides, lipides et aminoacides, en vue d\'une formation subséquente en biochimie ou en biologie; préparer l\'étudiant (futur ingénieur, spécialiste de la santé ou autre scientifique) à connaître, à reconnaître, à utiliser et à vivre adéquatement avec les millions de substances organiques associées à la vie moderne.', '2023-12-02 10:49:25.190347', '2023-12-02 10:10:21.606425', 1),
+        (5, 'Département de Physique', 'Ce département a pour but de former des étudiants à l\'interface physique-chimie par l\'acquisition des connaissances solides tant théoriques qu\'expérimentales en physique et en chimie, ainsi que de développer l\'autonomie des étudiants face à la pratique expérimentale en chimie et en physique.', '2023-12-02 10:49:12.489535', '2023-12-02 10:24:57.558073', 1),
+        # Add more department data as needed
+    ]
+
+    Department.objects.bulk_create([Department(id=dept_id, name=name, description=description, updated=updated, created=created, faculty=Faculty.objects.get(id=faculty_id)) for dept_id, name, description, updated, created, faculty_id in department_data])
+
+
+    # Add all Faculty instances
+    faculty_data = [
+        (1, 'Faculty of Science', 'This is the faculty od', '2023-11-12 12:23:30.820537', '2023-11-12 12:23:30.820537'),
+        (2, 'Faculty of Arts', 'This is the faculty of arts', '2023-11-12 12:24:32.724663',
+         '2023-11-12 12:24:32.724663'),
+        # Add more faculty data as needed
+    ]
+
+    Faculty.objects.bulk_create(
+        [Faculty(id=faculty_id, name=name, description=description, updated=updated, created=created) for
+         faculty_id, name, description, updated, created in faculty_data])
+    Branch = apps.get_model('your_app_name', 'Branch')
+
+    # Add all Branch instances
+    branch_data = [
+        (1, 'Informatique', 'cette filière vise à dispenser une formation généraliste en informatique...',
+         '2023-12-02 10:53:35.833072', '2023-12-02 10:35:12.212661', 1, 1),
+        (2, 'Mathématiques',
+         'cette filière a pour but de faire acquérir des connaissances scientifiques approfondies en mathématiques...',
+         '2023-12-02 10:53:19.689234', '2023-12-02 10:40:00.785280', 1, 1),
+        (3, 'Biologie Animale', "L'objectif de cette formation est de former aux sciences animales appliquées...",
+         '2023-12-02 10:48:52.851490', '2023-12-02 10:42:05.693076', 3, 1),
+        (5, 'Biologie Végétale',
+         'La biologie végétale fait partie intégrante des Sciences du Vivant, cette discipline permettra aux étudiants inscrits d\'acquérir des connaissances...',
+         '2023-12-02 10:53:00.127754', '2023-12-02 10:47:44.310896', 3, 1),
+        (6, 'Physique',
+         "L'objectif de la formation de Physique est de donner aux étudiants toutes les bases scientifiques nécessaires à la poursuite d'études au niveau licence master...",
+         '2023-12-02 10:55:33.671015', '2023-12-02 10:55:33.671015', 5, 1),
+        (7, 'Chimie',
+         'Cette formation permet aux étudiants d\'obtenir une base solide dans tous les secteurs de la chimie pour leur cycle licence et master.',
+         '2023-12-02 10:59:54.509095', '2023-12-02 10:59:54.509095', 4, 1),
+        # Add more branch data as needed
+    ]
+
+    Branch.objects.bulk_create([Branch(id=branch_id, name=name, description=description, updated=updated,
+                                       created=created, department_id=department_id, faculty_id=faculty_id) for
+                                branch_id, name, description, updated, created, department_id, faculty_id in
+                                branch_data])
+
+    Course = apps.get_model('your_app_name', 'Course')
+
+    # Add all Course instances
+    course_data = [
+        (1, 'Algorithme',
+         'Un algorithme est une série d\'instructions permettant de résoudre un problème. Il est constitué de plusieurs parties : déclaration des variables.',
+         '2023-12-02 11:02:40.259943', '2023-12-02 11:02:40.259943', 1, 1, 1),
+        (2, 'Génie Logiciel',
+         'Le cours de génie logiciel se veut pour objectif primordial d\'initier les étudiants de première Licence en Gestion Informatique, à la conception des applications informatiques de façon méthodique et rééditable.',
+         '2023-12-02 11:05:48.851635', '2023-12-02 11:05:48.851635', 1, 1, 1),
+        (3, 'Programmation Fonctionnelle',
+         'La programmation fonctionnelle est un style de programmation dont les concepts fondamentaux sont les notions de valeur, de fonction et d\'application d\'une fonction à un valeur.',
+         '2023-12-02 11:08:35.616455', '2023-12-02 11:08:35.616455', 1, 1, 1),
+        # Add more course data as needed
+    ]
+
+    Course.objects.bulk_create([Course(id=course_id, name=name, description=description, updated=updated,
+                                       created=created, branch_id=branch_id, department_id=department_id,
+                                       faculty_id=faculty_id) for
+                                course_id, name, description, updated, created, branch_id, department_id, faculty_id in
+                                course_data])
+
+
+class Migration(migrations.Migration):
+
+    initial = True
+
+    dependencies = [
+    ]
+
+    operations = [
+        migrations.RunPython(insert_db_default_values),

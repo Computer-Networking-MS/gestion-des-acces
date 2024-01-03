@@ -1,0 +1,68 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local development settings
+.env
+
+# Database
+#db.sqlite3
+
+# Static files
+staticfiles/
+
+# Media files
+media/
+
+# Virtual environment
+venv/
+env/
+myenv/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Compiled Python files
+*.pyc
+
+# Translation files
+*.mo
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+
+# Project-specific
+*.log
+*.pot
+
+# Ignore local configuration
+local_settings.py
+
+# Ignore migration files
+**/migrations/
+
+# Ignore the secret key
+*.key
+
+# Ignore environment-specific files
+.envrc
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Python bytecode
+*.pyc
+__pycache__/
+
+# Ignore the pipenv virtual environment
+Pipfile
+Pipfile.lock
+
+
+**/*.zip
+
+face_recognition_data/training_dataset/

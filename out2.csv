@@ -1,0 +1,4 @@
+id,name,description,updated,created,branch_id,department_id,faculty_id
+1,Algorithme,Un algorithme est une série d'instructions permettant de résoudre un problème. Il est constitué de plusieurs parties : déclaration des variables.,2023-12-02 11:02:40.259943,2023-12-02 11:02:40.259943,1,1,1
+2,Génie Logiciel,"Le cours de génie logiciel se veut pour objectif primordial d'initier les étudiants de première Licence en Gestion Informatique, à la conception des applications informatiques de façon méthodique et rééditable.",2023-12-02 11:05:48.851635,2023-12-02 11:05:48.851635,1,1,1
+3,Programmation Fonctionnelle,"La programmation fonctionnelle est un style de programmation dont les concepts fondamentaux sont les notions de valeur, de fonction et d'application d'une fonction à un valeur.",2023-12-02 11:08:35.616455,2023-12-02 11:08:35.616455,1,1,1

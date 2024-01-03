@@ -1,0 +1,44 @@
+<!-- student_registration.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="max-w-2xl mx-auto py-6 sm:px-6 lg:px-8 bg-white rounded-md shadow-xl">
+  {% if messages %}
+    <div class="col-lg-12" style="padding-top: 100px;" id="alertMessage">
+
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}" >{{ message }}</div>
+    {% endfor %}
+
+</div>
+     {% endif %}
+    <h2 class="text-2xl font-semibold leading-tight">Student Registration</h2>
+    <form method="post" enctype="multipart/form-data" class="mt-8">
+        {% csrf_token %}
+        {% load tailwind_filters %}
+        {{ form|crispy }}
+        <button type="submit"
+                class="inline-flex items-center px-4 py-2 bg-indigo-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-800 focus:outline-none focus:border-indigo-800 focus:ring focus:ring-indigo-300 disabled:opacity-25 transition">
+            Register
+        </button>
+    </form>
+
+    <script>
+  // Wait for the DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select the alert message element
+    var alertMessage = document.getElementById('alertMessage');
+
+    // Check if the element exists
+    if (alertMessage) {
+      // Set a timeout to hide the alert after 3 seconds
+      setTimeout(function () {
+        alertMessage.style.display = 'none';
+      }, 3000);
+    }
+  });
+</script>
+
+</div>
+{% endblock %}
